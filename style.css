@@ -1,25 +1,43 @@
-body{
-  margin:0;
-  padding:0;
-  background:#0000FF;
-  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  color: #666;
+  background: #888;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
 }
 h2, h3 {
-  color: #000000;
-  font-weight:bold;
+  color: #888;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
 }
+
+#banner .container, main header,
+#portfolio .grid, footer #footer-above {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
 #banner {
-  background-color: #880000;
+  background-color: #880000 !important;
   box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-color:#880000;
 }
-#titleName {
-  color: white;
-  font-size: 30px;
-  font-family: Helvetica,Arial, sans-serif;
+#banner .container {
+  width: 95%;
+  max-width: 1024px;
+  justify-content: space-between;
+  align-items: center;
+} ::before, ::after {
+  display: none;
+}
+#banner img {
+  height: 50px;
+  margin: 15px 0;
 }
 nav {
   font-size: 13px;
@@ -51,30 +69,24 @@ nav li.active a{
   display: block;
 }
 
-#banner, .container,
-main, header,
-#portfolio .grid,
-footer, #footer-above, #contact{
-  display:flex;
-  flex-flow:row wrap;
-  justify-content:space-around;
-  align-items:flex-start;
-  margin:0 auto;
-}
+
 main {
   margin:0 auto;
   max-width: 1024px;
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-#aboutHead {
+main header {
   background:#aaa;
   color:#fff;
   text-align:right;
   padding:80px 10% 50px;
   align-items:flex-end;
   align-content:space-around;
+  @media(min-width:1023px) {
+    padding: 50px 30px
+  }
 }
-.intro-text {
+main header .intro-text {
     text-align:center;
     margin-bottom:30px;
 }
@@ -99,35 +111,145 @@ hr.star-bright:after{
   background-color:#aaa;
 }
 
-.grid {
+section {
+  background: #eee;
+  padding:40px 0;
+}
+
+#portfolio .grid {
   padding:0;
   max-width: 90%;
   list-style: none;
-  margin-top: 20px;
-} li {
+  margin-top: 10px;
+  margin: auto;
+}
+#portfolio .grid li {
   margin: 20px;
   max-width: 600px;
   @media(min-width: 1023px) {
     max-width: 420px;
   }
-} img {
+}
+#portfolio img {
+  margin: 30px 0 10px;
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-section {
-  background:#ff0000;
-  padding: 40px 0;
-  width: 100%;
-  height:500px;
-}
-#contact {
-  background-color:#00ff00;
+  width: 250px;
 }
 
 @media(max-width: 500px) {
   #titleName {
     font-size: 20px;
   }
+}
+#titleName {
+  color: white;
+  font-size: 30px;
+  font-family: Helvetica,Arial, sans-serif;
+}
+#contact {
+  background-color:#00ff00;
+}
+#contact div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+#form-info {
+  margin: 60px auto 0;
+  max-width: 700px;
+}
+
+form {
+  width: 80%;
+  @media(min-width:1023px) {
+    width:40%;
+    margin-left:20px;
+  }
+}
+
+form .row:first-child .form-item{
+  border-top: 1px solid #fff;
+}
+
+form .form-item {
+  position:relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bbb;
+}
+
+form .form-item input, form .form-item textarea {
+  z-index: 1;
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 1.5em;
+  background: 0 0;
+  box-shadow: none !important;
+  resize: none;
+  width:100%;
+}
+
+form .form-item input:focus, form .form-item textarea:focus {
+  outline: 0;
+}
+
+form .form-item label {
+  display: block;
+  z-index: 0;
+  position: relative;
+  top: 2em;
+  margin: 0;
+  font-size: .85em;
+  line-height: 1.764705882em;
+  vertical-align: middle;
+  vertical-align: baseline;
+  opacity: 0;
+  -webkit-transition: top .3s ease,opacity .3s ease;
+  -moz-transition: top .3s ease,opacity .3s ease;
+  -ms-transition: top .3s ease,opacity .3s ease;
+  transition: top .3s ease,opacity .3s ease;
+}
+
+footer {
+  color: #fff;
+  background-color: #aaa;
+  text-align:center;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+footer h3 {
+  margin-bottom:30px;
+  color:#fff;
+}
+
+#footer-above {
+  padding-top:50px;
+  width:80%;
+}
+
+#footer-above div {
+  margin-bottom:50px;
+  width:250px;
+}
+
+#footer-above ul {
+  padding: 0;
+}
+
+#footer-above li {
+  display: inline;
+}
+
+#footer-below {
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  padding:25px 0;
+  background-color:#FF0000;
+  text-align:center;
 }
