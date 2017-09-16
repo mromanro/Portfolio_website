@@ -5,6 +5,7 @@ $(document).ready(function() {
     $(this).addClass('active').siblings().removeClass('active');
   });
 
+  //highlight nav button on scrolled section
   $(window).on('scroll', function() {
     $('section').each(function () {
       if($(window).scrollTop() + 40 > $(this).offset().top) {
@@ -14,7 +15,7 @@ $(document).ready(function() {
         $('#myNavbar li').removeClass('active');
         $('#myNavbar li a[href=\\#' + id +']').closest('li').addClass('active');
       }
-      else if($(window).scrollTop() == 0) {
+      else if($(window).scrollTop() <= ($(this).height()/3)) {
         console.log("entering");
         $('#myNavbar li').removeClass('active');
         $('#myNavbar li a[href=\\#about]').closest('li').addClass('active');
